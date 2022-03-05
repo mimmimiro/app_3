@@ -12,6 +12,7 @@
 			<button class="slideshow__buttons-next" @click="next" > Next</button>
 		</div>
 		<!-- v-if="currentIndex > 0" -->
+		<!-- v-if="currentIndex < 7" -->
 	</main>
 
 </template>
