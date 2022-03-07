@@ -45,7 +45,7 @@
   		},
 		methods: { 
 			startSlideshow() {
-      		this.timer = setInterval(this.next, 4000);
+      		this.timer = setInterval(this.next, 5000);
     		},
 			next() {
 				console.log('next')

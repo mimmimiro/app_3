@@ -112,5 +112,18 @@
 	.container__list-laureate {
 		padding: 5px;
 	}
+
+	@media screen and (max-width: 1024px) {
+		.container__list,
+		.container__list-category,
+		.container__list-prize,
+		.container__list-laureate {
+			padding: 5px;
+			line-height: 3.5rem;
+		}
+		.container__list-laureate {
+			background-color:  #d4c3a5;
+		}
+	}
 </style>
 
