@@ -27,53 +27,53 @@
 </template>
 
 <script>
-import Slideshow from '../components/Slideshow.vue'
-import Header from '../components/Header.vue'
-export default {
-	components:{
-		Header,
-		Slideshow
-	},
-	data() {
-		return {
-			error:'',
-			year: 'Award year:',
-			prize: 'Prize amount: $',
-			category: 'Category:',
-			fullName: '',
-      //  search: '',
-		//  yearValue: '',
-		 winners: [],
-		//   winnerName: '',
-	  		motivation:'',
-			laureates: []
-		}
-	},
-	created() {
-		this.fetchWinner();
-	},
-	methods: {
-		async fetchWinner() {
-      const url = 'https://masterdataapi.nobelprize.org/2.1/nobelPrizes?offset=0&limit=8';
-		try {
-			await this.handleResponse(url);
-		} catch (error) {
-			console.log(error)
-			this.error = error;
-		}
+	import Slideshow from '../components/Slideshow.vue'
+	import Header from '../components/Header.vue'
+	export default {
+			components:{
+				Header,
+				Slideshow
+			},
+		data() {
+				return {
+					error:'',
+					year: 'Award year:',
+					prize: 'Prize amount: $',
+					category: 'Category:',
+					fullName: '',
+				//  search: '',
+				//  yearValue: '',
+					winners: [],
+				//   winnerName: '',
+					motivation:'',
+					laureates: []
+				}
+			},
+		created() {
+				this.fetchWinner();
+			},
+		methods: {
+				async fetchWinner() {
+				const url = 'https://masterdataapi.nobelprize.org/2.1/nobelPrizes?offset=0&limit=8';
+				try {
+					await this.handleResponse(url);
+				} catch (error) {
+					console.log(error)
+					this.error = error;
+				}
 		
-		},
+				},
 		async handleResponse(url) {
-			const response = await fetch(url); 
-			console.log(response)
-			if(response && response.status >= 200 && response.status < 300) {
-				const { nobelPrizes  }  = await response.json();
-				this.winners = nobelPrizes;
-				this.laureates = this.winners[0].laureates;
-				return true;
-			} else {
-				throw new Error('Error galt')
-			}
+				const response = await fetch(url); 
+				console.log(response)
+				if(response && response.status >= 200 && response.status < 300) {
+					const { nobelPrizes  }  = await response.json();
+					this.winners = nobelPrizes;
+					this.laureates = this.winners[0].laureates;
+					return true;
+				} else {
+					throw new Error('Error galt')
+				}
 		}
 	}
 }

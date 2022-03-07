@@ -41,12 +41,12 @@
 			};
 	   },
 		mounted() {
-    this.startSlideshow();
-  },
+    			this.startSlideshow();
+  		},
 		methods: { 
 			startSlideshow() {
-      this.timer = setInterval(this.next, 4000);
-    },
+      		this.timer = setInterval(this.next, 4000);
+    		},
 			next() {
 				console.log('next')
 			   this.currentIndex = this.currentIndex === this.image.length - 1 ? 0 : this.currentIndex + 1;
