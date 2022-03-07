@@ -12,16 +12,16 @@
 			 <span>{{ winnerName }}</span>
 			 <button @click="searchWinner" class="search__button">winner year</button>
 	 </div> -->
-        
-      <section class="container">
-		 <ul class="container__list" v-for="winner in winners" :key="winner.id"> 
-			<li class="container__list-award">{{ year }} {{winner.awardYear}}</li>
-			<li class="container__list-prize">{{ prize }}{{ winner.prizeAmount }}</li>
-		<li class="container__list-category">{{ category }} {{ winner.categoryFullName.en }} </li>
-		 <li  class="container__list-laureate" v-for="laureate in winner.laureates" :key="laureate.id">
-			 {{laureate.fullName.en}}: <br> {{ laureate.motivation.en}}</li>
-	</ul>
-</section>
+			
+	<section class="container">
+		<ul class="container__list" v-for="winner in winners" :key="winner.id"> 
+				<li class="container__list-award">{{ year }} {{winner.awardYear}}</li>
+				<li class="container__list-prize">{{ prize }}{{ winner.prizeAmount }}</li>
+				<li class="container__list-category">{{ category }} {{ winner.categoryFullName.en }} </li>
+				<li  class="container__list-laureate" v-for="laureate in winner.laureates" :key="laureate.id">
+				{{laureate.fullName.en}}: <br> {{ laureate.motivation.en}}</li>
+		</ul>
+	</section>
 	
 		</main>
 </template>
@@ -31,8 +31,8 @@ import Slideshow from '../components/Slideshow.vue'
 import Header from '../components/Header.vue'
 export default {
 	components:{
-		Slideshow,
-		Header
+		Header,
+		Slideshow
 	},
 	data() {
 		return {
@@ -67,36 +67,36 @@ export default {
 </script>
 
 <style scoped>
-.container {
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	display: flex;
-	flex-direction: column;
-	margin: 25px;
-	background-color: #f4f2f0;
-	line-height: 1.8rem;
-	font-family: sans-serif;
-	
-}
+	.container {
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+		display: flex;
+		flex-direction: column;
+		margin: 25px;
+		background-color: #f4f2f0;
+		line-height: 1.8rem;
+		font-family: sans-serif;
+		
+	}
 
-.container__list {
-	margin: 25px;
-}
+	.container__list {
+		margin: 25px;
+	}
 
-li {
-list-style: none;
-}
+	li {
+	list-style: none;
+	}
 
-.container__list-award {
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-	background-color: #bb8a35;
-	padding: 10px;
-	font-weight: 500;
-}
+	.container__list-award {
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+		background-color: #bb8a35;
+		padding: 10px;
+		font-weight: 500;
+	}
 
-.container__list-category,
-.container__list-prize,
-.container__list-laureate {
-	padding: 5px;
-}
+	.container__list-category,
+	.container__list-prize,
+	.container__list-laureate {
+		padding: 5px;
+	}
 </style>
 
