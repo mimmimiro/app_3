@@ -25,30 +25,34 @@
 			image: [
 				{caption: 'Emil Adolf von Behring', file: '/images/EmilB.jpg'},
 				{caption: 'Hermann Emil Fischer', file: '/images/EmilF.jpg'},
-				{caption: 'Jean Henry Dunant', file: '/images/Henri.jpg'},
+				{caption: 'Jean Henry Dunant & Frédéric Passy', file: '/images/Henri.jpg'},
 				{caption: 'Sully Prudhomme', file: '/images/Sully.jpg'},
 				{caption: 'Christian Matthias Theodor Mommsen', file: '/images/Theodor.jpg'},
 				{caption: 'Wilhelm Conrad Röntgen', file: '/images/Wilhelm.jpg'},
-				{caption: 'Élie Ducommun', file: '/images/Eli.jpg'},
+				{caption: 'Élie Ducommun & Charles Albert Gobat', file: '/images/ElieD.jpg'},
 				{caption: 'Jacobus Henricus vant Hoff', file: '/images/jacobush.jpg'},
 			],
 			
 			};
 	   },
+		methods: { 
+			next() {
+				console.log('next')
+			   this.currentIndex = this.currentIndex === this.image.length - 1 ? 0 : this.currentIndex + 1;
+				console.log(this.currentIndex)
+				console.log(startImage())
+			},
+			previous() {
+				this.currentIndex = this.currentIndex === 0 ? this.image.length - 1 : this.currentIndex - 1;
+				console.log(this.currentIndex)
+			},
+	 	},
 		computed: {
 			startImage() {
 				return this.image[this.currentIndex];
-		},
-		methods: { 
-			next() {
-				this.currentIndex = this.currentIndex === this.image.length - 1 ? 0 : this.currentIndex + 1;
-		},
-			previous() {
-				this.currentIndex = this.currentIndex === 0 ? this.image.length - 1 : this.currentIndex - 1;
-			},
-	 	}
- 	 }
-	}
+		}
+ 	}
+}
 </script>
 
 <style scoped>
@@ -57,7 +61,7 @@
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		padding: 10px;
-		width: 250px;
+		width: 400px;
 		margin-top: 10px;
 		margin-left: 550px;
 		color: #bb8a35;
@@ -91,9 +95,20 @@
 	}
 	.slideshow__image {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-		width: 70vw;
-		height: 70vh;
+		width: 80vw;
+		height: 80vh;
 		margin-left: 160px;
 	
+	}
+
+	@media screen and (max-width: 1024px) {
+		.slideshow__image {
+			width: 90vw;
+			height: 60vh;
+			margin: 10px 10px 10px 50px;
+		}
+		.slideshow__images-caption {
+			margin: 10px 200px 10px 300px;
+		}
 	}
 </style>
