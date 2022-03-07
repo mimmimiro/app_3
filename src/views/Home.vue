@@ -12,7 +12,7 @@
 			 <span>{{ winnerName }}</span>
 			 <button @click="searchWinner" class="search__button">winner year</button>
 	 </div> -->
-			
+			<div v-if="error">{{ error }}</div>
 	<section class="container">
 		<ul class="container__list" v-for="winner in winners" :key="winner.id"> 
 				<li class="container__list-award">{{ year }} {{winner.awardYear}}</li>
@@ -36,6 +36,7 @@ export default {
 	},
 	data() {
 		return {
+			error:'',
 			year: 'Award year:',
 			prize: 'Prize amount: $',
 			category: 'Category:',
@@ -49,19 +50,32 @@ export default {
 		}
 	},
 	created() {
-		 this.fetchWinner();
-		
+		this.fetchWinner();
 	},
 	methods: {
 		async fetchWinner() {
       const url = 'https://masterdataapi.nobelprize.org/2.1/nobelPrizes?offset=0&limit=8';
-		const res = await fetch(url); 
-		const { nobelPrizes  }  = await res.json();
-		this.winners = nobelPrizes;
-		this.laureates = this.winners[0].laureates;
-		console.log(this.winners[0].laureates);
-},
-}
+		try {
+			await this.handleResponse(url);
+		} catch (error) {
+			console.log(error)
+			this.error = error;
+		}
+		
+		},
+		async handleResponse(url) {
+			const response = await fetch(url); 
+			console.log(response)
+			if(response && response.status >= 200 && response.status < 300) {
+				const { nobelPrizes  }  = await response.json();
+				this.winners = nobelPrizes;
+				this.laureates = this.winners[0].laureates;
+				return true;
+			} else {
+				throw new Error('Error galt')
+			}
+		}
+	}
 }
 
 </script>
