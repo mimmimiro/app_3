@@ -2,7 +2,7 @@
 	<main class="slideshow">
 		
 			<figure class="slideshow__images">
-				<transition-group name="fade" tag="div">
+				<transition-group name="list" tag="ul">
 					<div class="slideshow__timer" v-for="image in [currentIndex]" :key="image">
 			<img class="slideshow__image" :src="startImage.file" :alt="startImage.caption" >
 			<figcaption class="slideshow__images-caption">{{ startImage.caption }}</figcaption>
@@ -112,6 +112,22 @@
 		margin-left: 145px;
 	
 	}
+	/* apply transition to moving elements */
+	.list-move, 
+	.list-enter-active,
+	.list-leave-active {
+		transition: all 0.5s ease;
+	}
+
+	.list-enter-from,
+	.list-leave-to {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+
+	.list-leave-active {
+		position: absolute;
+	}
 
 	@media screen and (max-width: 1024px) {
 		.slideshow__image {
@@ -122,5 +138,6 @@
 		.slideshow__images-caption {
 			margin: 10px 200px 10px 300px;
 		}
+	
 	}
 </style>
