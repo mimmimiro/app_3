@@ -1,16 +1,20 @@
 <template>
 	<main class="slideshow">
-
-		<div class="slideshow__images">
+		
 			<figure class="slideshow__images">
+				<transition-group name="fade" tag="div">
+					<div class="slideshow__timer" v-for="image in [currentIndex]" :key="image">
 			<img class="slideshow__image" :src="startImage.file" :alt="startImage.caption" >
 			<figcaption class="slideshow__images-caption">{{ startImage.caption }}</figcaption>
+					</div>
+					</transition-group>
 			</figure>
-		</div>
+
 		<div class="slideshow__buttons">
 			<button class="slideshow__buttons-previous"  @click="previous" > Previous</button>
 			<button class="slideshow__buttons-next" @click="next" > Next</button>
 		</div>
+		
 		<!-- v-if="currentIndex > 0" -->
 		<!-- v-if="currentIndex < 7" -->
 	</main>
@@ -21,7 +25,6 @@
 	export default {
 		data() {
 			return {
-			currentIndex: 0,
 			image: [
 				{caption: 'Emil Adolf von Behring', file: '/images/EmilB.jpg'},
 				{caption: 'Hermann Emil Fischer', file: '/images/EmilF.jpg'},
@@ -32,10 +35,18 @@
 				{caption: 'Élie Ducommun & Charles Albert Gobat', file: '/images/ElieD.jpg'},
 				{caption: 'Jacobus Henricus vant Hoff', file: '/images/jacobush.jpg'},
 			],
+			timer: null,
+			currentIndex: 0
 			
 			};
 	   },
+		mounted() {
+    this.startSlideshow();
+  },
 		methods: { 
+			startSlideshow() {
+      this.timer = setInterval(this.next, 4000);
+    },
 			next() {
 				console.log('next')
 			   this.currentIndex = this.currentIndex === this.image.length - 1 ? 0 : this.currentIndex + 1;
@@ -62,8 +73,7 @@
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		padding: 10px;
 		width: 400px;
-		margin-top: 10px;
-		margin-left: 550px;
+		margin: 10px 0px 0px 550px;
 		color: #bb8a35;
 		font-weight: bold;
 	}
@@ -81,6 +91,7 @@
 		margin-right: 35px;
 		color: #bb8a35;
 		font-weight: bold;
+		cursor: pointer;
 	}
 	.slideshow__buttons-previous {
 		text-align: center;
@@ -91,13 +102,14 @@
 		margin-left: 35px;
 		color: #bb8a35;
 		font-weight: bold;
+		cursor: pointer;
 		
 	}
 	.slideshow__image {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		width: 80vw;
 		height: 80vh;
-		margin-left: 160px;
+		margin-left: 145px;
 	
 	}
 
