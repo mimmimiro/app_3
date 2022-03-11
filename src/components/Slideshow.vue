@@ -50,12 +50,12 @@
 			next() {
 				console.log('next')
 			   this.currentIndex = this.currentIndex === this.image.length - 1 ? 0 : this.currentIndex + 1;
-				console.log(this.currentIndex)
-				console.log(startImage())
+				
+				
 			},
 			previous() {
 				this.currentIndex = this.currentIndex === 0 ? this.image.length - 1 : this.currentIndex - 1;
-				console.log(this.currentIndex)
+				
 			},
 	 	},
 		computed: {
