@@ -2,16 +2,6 @@
 <main >
 	<Header />
 	<Slideshow />
-	<!-- <div class="search"> 
-        <input 
-          type="text" 
-          class="search__input" 
-          placeholder="Search..."
-          v-model="search">
-			 <span>{{ yearValue }}</span>
-			 <span>{{ winnerName }}</span>
-			 <button @click="searchWinner" class="search__button">winner year</button>
-	 </div> -->
 			<div v-if="error">{{ error }}</div>
 	<section class="container">
 		<ul class="container__list" v-for="winner in winners" :key="winner.id"> 
@@ -41,10 +31,7 @@
 					prize: 'Prize amount: $',
 					category: 'Category:',
 					fullName: '',
-				//  search: '',
-				//  yearValue: '',
 					winners: [],
-				//   winnerName: '',
 					motivation:'',
 					laureates: []
 				}
