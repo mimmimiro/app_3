@@ -75,7 +75,7 @@
 		margin: 25px;
 		background-color: #f4f2f0;
 		line-height: 1.8rem;
-		font-family: sans-serif;
+		
 		
 	}
 
