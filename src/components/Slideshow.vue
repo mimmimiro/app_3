@@ -113,7 +113,7 @@
 	
 	}
 	/* apply transition to moving elements */
-	.slide-move, 
+
 	.slide-enter-active,
 	.slide-leave-active {
 		transition: all 0.5s ease;
@@ -127,6 +127,9 @@
 
 	.slide-leave-active {
 		position: absolute;
+	}
+	.slide-move {
+		transition: transform 0.8 ease;
 	}
 
 	@media screen and (max-width: 1024px) {
