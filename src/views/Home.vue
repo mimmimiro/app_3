@@ -3,7 +3,9 @@
 	<Header />
 	<Slideshow />
 			<div v-if="error">{{ error }}</div>
-	<section class="container">
+		 <button @click="showWinners" v-if="!winnersAreVisible">Show Winners</button>
+      <button @click="hideWinners" v-else>Hide Winners</button>
+	<section class="container" v-if="winnersAreVisible === true">
 		<ul class="container__list" v-for="winner in winners" :key="winner.id"> 
 				<li class="container__list-award">{{ year }} {{winner.awardYear}}</li>
 				<li class="container__list-prize">{{ prize }}{{ winner.prizeAmount }}</li>
@@ -12,17 +14,19 @@
 				{{laureate.fullName.en}}: <br> {{ laureate.motivation.en}}</li>
 		</ul>
 	</section>
-	
+	<Footer />
 		</main>
 </template>
 
 <script>
 	import Slideshow from '../components/Slideshow.vue'
 	import Header from '../components/Header.vue'
+	import Footer from '../components/Footer.vue'
 	export default {
 			components:{
 				Header,
-				Slideshow
+				Slideshow,
+				Footer
 			},
 		data() {
 				return {
@@ -33,13 +37,20 @@
 					fullName: '',
 					winners: [],
 					motivation:'',
-					laureates: []
+					laureates: [],
+					winnersAreVisible: false,
 				}
 			},
 		created() {
 				this.fetchWinner();
 			},
 		methods: {
+			showWinners() {
+				this.winnersAreVisible = true;
+			},
+			hideWinners() {
+				this.winnersAreVisible = false;
+			},
 				async fetchWinner() {
 				const url = 'https://masterdataapi.nobelprize.org/2.1/nobelPrizes?offset=0&limit=8';
 				try {
@@ -68,6 +79,7 @@
 </script>
 
 <style scoped>
+ 
 	.container {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		display: flex;
@@ -75,8 +87,6 @@
 		margin: 25px;
 		background-color: #f4f2f0;
 		line-height: 1.6rem;
-		
-		
 	}
 
 	.container__list {
@@ -93,12 +103,26 @@
 		padding: 10px;
 		font-weight: 600;
 		color: rgb(44, 44, 44);
+		letter-spacing: 0.1em;
 	}
 
 	.container__list-category,
 	.container__list-prize,
 	.container__list-laureate {
 		padding: 5px;
+	}
+
+	button {
+		text-align: center;
+		background-color: #f4f2f0;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+		padding: 8px;
+		width: 200px;
+		margin-left: 650px;
+		color: #bb8a35;
+		font-weight: bold;
+		cursor: pointer;
+		letter-spacing: 0.2em;
 	}
 
 	@media screen and (max-width: 1024px) {
@@ -111,6 +135,9 @@
 		}
 		.container__list-laureate {
 			background-color:  #d4c3a5;
+		}
+		button {
+			margin-left: 450px;
 		}
 	}
 </style>
