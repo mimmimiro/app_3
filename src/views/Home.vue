@@ -63,14 +63,19 @@
 				},
 		async handleResponse(url) {
 				const response = await fetch(url); 
-				console.log(response)
 				if(response && response.status >= 200 && response.status < 300) {
 					const { nobelPrizes  }  = await response.json();
 					this.winners = nobelPrizes;
 					this.laureates = this.winners[0].laureates;
 					return true;
 				} else {
-					throw new Error('Error galt')
+					if(response.status === 404) {
+					throw new Error('Url is not right');
+				}
+					if(response.status === 500) {
+					throw new Error('server not working!');
+				}
+					throw new Error('Fatal Error')
 				}
 		}
 	}
