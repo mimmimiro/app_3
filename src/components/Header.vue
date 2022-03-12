@@ -49,9 +49,4 @@ export default {
 	
 	
 }
-
-
-
-
-
 </style>
