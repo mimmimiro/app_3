@@ -74,7 +74,7 @@
 		flex-direction: column;
 		margin: 25px;
 		background-color: #f4f2f0;
-		line-height: 1.8rem;
+		line-height: 1.6rem;
 		
 		
 	}
@@ -84,14 +84,15 @@
 	}
 
 	li {
-	list-style: none;
+		list-style: none;
 	}
 
 	.container__list-award {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		background-color: #bb8a35;
 		padding: 10px;
-		font-weight: 500;
+		font-weight: 600;
+		color: rgb(44, 44, 44);
 	}
 
 	.container__list-category,
