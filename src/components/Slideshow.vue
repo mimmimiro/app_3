@@ -1,6 +1,5 @@
 <template>
 	<main class="slideshow">
-		
 			<figure class="slideshow__images">
 				<transition-group name="slide" tag="ul">
 					<div class="slideshow__timer" v-for="image in [currentIndex]" :key="image">
@@ -72,15 +71,17 @@
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		padding: 10px;
-		width: 400px;
+		width: 430px;
 		margin: 10px 0px 0px 550px;
 		color: #bb8a35;
 		font-weight: bold;
+		letter-spacing: 0.2em;
 	}
 	.slideshow__buttons {
 		display: flex;
 		justify-content: space-between;
 		position: relative;
+		
 	}
 	.slideshow__buttons-next {
 		text-align: center;
@@ -92,17 +93,19 @@
 		color: #bb8a35;
 		font-weight: bold;
 		cursor: pointer;
+		letter-spacing: 0.2em;
 	}
 	.slideshow__buttons-previous {
 		text-align: center;
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		padding: 8px;
-		width: 100px;
+		width: 120px;
 		margin-left: 35px;
 		color: #bb8a35;
 		font-weight: bold;
 		cursor: pointer;
+		letter-spacing: 0.2em;
 		
 	}
 	.slideshow__image {
