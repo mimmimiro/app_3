@@ -9,12 +9,10 @@
 					</div>
 					</transition-group>
 			</figure>
-
 		<div class="slideshow__buttons">
 			<button class="slideshow__buttons-previous"  @click="previous" > Previous</button>
 			<button class="slideshow__buttons-next" @click="next" > Next</button>
 		</div>
-		
 		<!-- v-if="currentIndex > 0" -->
 		<!-- v-if="currentIndex < 7" -->
 	</main>
@@ -43,10 +41,10 @@
 		mounted() {
     			this.startSlideshow();
   		},
-		//   the slides glide every 5 seconds with this method
+		//   the slides glide every 6 seconds with this method
 		methods: { 
 			startSlideshow() {
-      		this.timer = setInterval(this.next, 5000);
+      		this.timer = setInterval(this.next, 6000);
     		},
 			next() {
 				console.log('next')
@@ -83,9 +81,9 @@
 	.slideshow__buttons {
 		 display: flex;
 		justify-content: space-between;
+		
 	}
 	.slideshow__buttons-next {
-		position: absolute;
 		 text-align: center;
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -98,10 +96,8 @@
 		letter-spacing: 0.15em;
 		border-radius: 5px; 
 		right: 0;
-		top: 70%;
 	}
 	.slideshow__buttons-previous {
-		position: absolute;
 		text-align: center;
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -114,8 +110,6 @@
 		cursor: pointer;
 		letter-spacing: 0.15em;
 		left: 0;
-		top: 70%;
-		
 	}
 	.slideshow__image {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
