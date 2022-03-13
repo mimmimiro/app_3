@@ -2,8 +2,10 @@
 <main >
 	<Header />
 	<Slideshow />
+	      <!-- The error message only appears when error is detected -->
 			<div v-if="error">{{ error }}</div>
-		 <button @click="showWinners" v-if="!winnersAreVisible">Show Winners</button>
+       <!-- the buttons switches the list between hiding and showing -->
+		<button @click="showWinners" v-if="!winnersAreVisible">Show Winners</button>
       <button @click="hideWinners" v-else>Hide Winners</button>
 	<section class="container" v-if="winnersAreVisible === true">
 		<ul class="container__list" v-for="winner in winners" :key="winner.id"> 
@@ -89,13 +91,13 @@
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		display: flex;
 		flex-direction: column;
-		margin: 25px;
+		margin: 20px 75px;
 		background-color: #f4f2f0;
 		line-height: 1.6rem;
 	}
 
 	.container__list {
-		margin: 25px;
+		margin: 15px;
 	}
 
 	li {
@@ -106,6 +108,7 @@
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		background-color: #bb8a35;
 		padding: 10px;
+		border-radius: 5px;
 		font-weight: 600;
 		color: rgb(44, 44, 44);
 		letter-spacing: 0.1em;
@@ -119,15 +122,16 @@
 
 	button {
 		text-align: center;
-		background-color: #f4f2f0;
+		background-color: #bb8a35;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-		padding: 8px;
+		padding: 10px;
+		border-radius: 5px;
 		width: 200px;
 		margin-left: 650px;
-		color: #bb8a35;
+		color: #f4f2f0;
 		font-weight: bold;
 		cursor: pointer;
-		letter-spacing: 0.2em;
+		letter-spacing: 0.15em;
 	}
 
 	@media screen and (max-width: 1024px) {

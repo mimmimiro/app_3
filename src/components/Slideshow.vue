@@ -1,6 +1,7 @@
 <template>
 	<main class="slideshow">
 			<figure class="slideshow__images">
+				 <!-- transtion-group component in Vue.js,  images will iterate.-->
 				<transition-group name="slide" tag="ul">
 					<div class="slideshow__timer" v-for="image in [currentIndex]" :key="image">
 			<img class="slideshow__image" :src="startImage.file" :alt="startImage.caption" >
@@ -42,6 +43,7 @@
 		mounted() {
     			this.startSlideshow();
   		},
+		//   the slides glide every 5 seconds with this method
 		methods: { 
 			startSlideshow() {
       		this.timer = setInterval(this.next, 5000);
@@ -71,48 +73,55 @@
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		padding: 10px;
-		width: 430px;
-		margin: 10px 0px 0px 550px;
+		border-radius: 5px;
+		width: 470px;
+		margin: 15px 0px 20px 550px;
 		color: #bb8a35;
 		font-weight: bold;
-		letter-spacing: 0.2em;
+		letter-spacing: 0.15em;
 	}
 	.slideshow__buttons {
-		display: flex;
+		 display: flex;
 		justify-content: space-between;
-		position: relative;
-		
 	}
 	.slideshow__buttons-next {
-		text-align: center;
+		position: absolute;
+		 text-align: center;
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-		padding: 8px;
-		width: 100px;
-		margin-right: 35px;
+		padding: 10px;
+		width: 120px;
+		margin-right: 45px; 
 		color: #bb8a35;
 		font-weight: bold;
 		cursor: pointer;
-		letter-spacing: 0.2em;
+		letter-spacing: 0.15em;
+		border-radius: 5px; 
+		right: 0;
+		top: 70%;
 	}
 	.slideshow__buttons-previous {
+		position: absolute;
 		text-align: center;
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-		padding: 8px;
+		padding: 10px;
+		border-radius: 5px;
 		width: 120px;
-		margin-left: 35px;
+		margin-left: 45px;
 		color: #bb8a35;
 		font-weight: bold;
 		cursor: pointer;
-		letter-spacing: 0.2em;
+		letter-spacing: 0.15em;
+		left: 0;
+		top: 70%;
 		
 	}
 	.slideshow__image {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-		width: 80vw;
-		height: 80vh;
-		margin-left: 145px;
+		width: 70vw;
+		height: 70vh;
+		margin-left: 210px;
 	
 	}
 	/* apply transition to moving elements */
@@ -137,12 +146,16 @@
 
 	@media screen and (max-width: 1024px) {
 		.slideshow__image {
-			width: 90vw;
+			width: 80vw;
 			height: 60vh;
-			margin: 10px 10px 10px 50px;
+			margin: 10px 10px 10px 90px;
 		}
 		.slideshow__images-caption {
 			margin: 10px 200px 10px 300px;
+		}
+		.slideshow__buttons-previous,
+		.slideshow__buttons-next {
+			top: 77%;
 		}
 	
 	}
