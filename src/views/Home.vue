@@ -7,6 +7,7 @@
        <!-- the buttons switches the list between hiding and showing -->
 		<button @click="showWinners" v-if="!winnersAreVisible">Show Winners</button>
       <button @click="hideWinners" v-else>Hide Winners</button>
+		
 	<section class="container" v-if="winnersAreVisible === true">
 		<ul class="container__list" v-for="winner in winners" :key="winner.id"> 
 				<li class="container__list-award">{{ year }} {{winner.awardYear}}</li>
