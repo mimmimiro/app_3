@@ -137,7 +137,7 @@
 		transition: transform 0.8 ease;
 	}
 
-	@media screen and (max-width: 968px) {
+	@media screen and (max-width: 1024px) {
 		.slideshow__image {
 			width: 80vw;
 			height: 60vh;

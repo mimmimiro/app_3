@@ -136,7 +136,7 @@
 		letter-spacing: 0.15em;
 	}
 
-	@media screen and (max-width: 968px) {
+	@media screen and (max-width: 1024px) {
 		.container__list,
 		.container__list-category,
 		.container__list-prize,
