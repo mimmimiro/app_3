@@ -50,7 +50,6 @@
 				console.log('next')
 			   this.currentIndex = this.currentIndex === this.image.length - 1 ? 0 : this.currentIndex + 1;
 				
-				
 			},
 			previous() {
 				this.currentIndex = this.currentIndex === 0 ? this.image.length - 1 : this.currentIndex - 1;
@@ -138,7 +137,7 @@
 		transition: transform 0.8 ease;
 	}
 
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 968px) {
 		.slideshow__image {
 			width: 80vw;
 			height: 60vh;
