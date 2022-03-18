@@ -3,10 +3,10 @@
 			<figure class="slideshow__images">
 				 <!-- transtion-group component in Vue.js,  images will iterate.-->
 				<transition-group name="slide" tag="ul">
-					<div class="slideshow__timer" v-for="image in [currentIndex]" :key="image">
+					<section class="slideshow__timer" v-for="image in [currentIndex]" :key="image">
 			<img class="slideshow__image" :src="startImage.file" :alt="startImage.caption" >
 			<figcaption class="slideshow__images-caption">{{ startImage.caption }}</figcaption>
-					</div>
+					</section>
 					</transition-group>
 			</figure>
 		<div class="slideshow__buttons">
@@ -136,7 +136,7 @@
 	.slide-move {
 		transition: transform 0.8 ease;
 	}
-
+	/* small and medium devices */
 	@media screen and (max-width: 1024px) {
 		.slideshow__image {
 			width: 80vw;

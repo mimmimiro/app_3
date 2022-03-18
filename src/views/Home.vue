@@ -55,6 +55,9 @@
 			hideWinners() {
 				this.winnersAreVisible = false;
 			},
+			  //  an asynchronous HTTP request in JavaScript/vue with the deconstructed fetch method
+			  // it offers an eloquent way to establish agile communication between client and server.
+			 // fetch returns a promise, wich allows us to handle the asynchronous request in a smarter way
 				async fetchWinner() {
 				const url = 'https://masterdataapi.nobelprize.org/2.1/nobelPrizes?offset=0&limit=8';
 				try {
@@ -65,7 +68,8 @@
 				}
 		
 				},
-		async handleResponse(url) {
+			// The catch() function is only used if fetch() could not send a request. This typically means that there was an error
+			async handleResponse(url) {
 				const response = await fetch(url); 
 				if(response && response.status >= 200 && response.status < 300) {
 					const { nobelPrizes  }  = await response.json();
@@ -135,7 +139,7 @@
 		cursor: pointer;
 		letter-spacing: 0.15em;
 	}
-
+   /* small and medium devices */
 	@media screen and (max-width: 1024px) {
 		.container__list,
 		.container__list-category,
