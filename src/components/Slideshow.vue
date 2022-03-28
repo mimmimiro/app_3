@@ -78,12 +78,12 @@
 		letter-spacing: 0.15em;
 	}
 	.slideshow__buttons {
-		 display: flex;
+		display: flex;
 		justify-content: space-between;
 		
 	}
 	.slideshow__buttons-next {
-		 text-align: center;
+		text-align: center;
 		background-color: #f4f2f0;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 		padding: 10px;
