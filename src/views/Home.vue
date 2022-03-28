@@ -133,7 +133,7 @@
 		padding: 10px;
 		border-radius: 5px;
 		width: 200px;
-		margin-left: 650px;
+		margin-left: 600px;
 		color: #f4f2f0;
 		font-weight: bold;
 		cursor: pointer;

@@ -72,7 +72,7 @@
 		padding: 10px;
 		border-radius: 5px;
 		width: 470px;
-		margin: 15px 0px 20px 550px;
+		margin: 15px 0px 20px 500px;
 		color: #bb8a35;
 		font-weight: bold;
 		letter-spacing: 0.15em;
